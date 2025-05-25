@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gesundheit und Neurobiologie</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <link rel="stylesheet" href="NW-Farbe.css" />
+</head>
+<body>
+  <header class="fullscreen-header particle-container" id="home">
+    <h1>Entwicklungsneurobiologie</h1>
+    <a href="#topics" class="scroll-hint">↓</a>
+  </header>
+
+  <nav class="top-nav">
+    <div class="nav-links" id="navLinks">
+      <a href="index.html#home" class="nav-link active">Start</a>
+      <a href="index.html#topics" class="nav-link">Themen</a>
+      <a href="index.html#about" class="nav-link">Über das Projekt</a>
+      <a href="Forum/Forum-Main.html" class="nav-link" id="forumLink">Forum</a>
+      <a href="Updates/Update-Main.html" class="nav-link">Updates</a>
+      <a href="Login/Login-Main.html" class="nav-link" id="loginLogoutLink">Login</a>
+    </div>
+  </nav>
+
+  <main class="topics-container" id="topics">
+    <h2 class="grid-header">Wie beeinflussen Entwicklung, Alterung und Störungen das Gehirn?</h2>
+
+    <a href="EntwicklungsBiologie/Entwicklungsneurobiologie-1.html" style="text-decoration: none;">
+      <div class="topic-item">
+        <i class="fas fa-brain icon"></i>
+        <div class="topic-content">
+          <h3>Alterungsprozesse des Gehirns</h3>
+          <p>Ein kurzer Einblick in die Mechanismen des neuronalen Alterns.</p>
+        </div>
+        <div class="plus-button">
+          <i class="fas fa-plus"></i>
+        </div>
+      </div>
+    </a>
+
+    <a href="EntwicklungsBiologie/Entwicklungsneurobiologie-2.html" style="text-decoration: none;">
+      <div class="topic-item">
+        <i class="fas fa-baby icon"></i>
+        <div class="topic-content">
+          <h3>Gehirnentwicklung</h3>
+          <p>Wie sich das Gehirn in den frühen Lebensjahren entwickelt.</p>
+        </div>
+        <div class="plus-button">
+          <i class="fas fa-plus"></i>
+        </div>
+      </div>
+    </a>
+
+    <a href="EntwicklungsBiologie/Entwicklungsneurobiologie-3.html" style="text-decoration: none;">
+      <div class="topic-item">
+        <i class="fas fa-question-circle icon"></i>
+        <div class="topic-content">
+          <h3>Ursachen von ADHS</h3>
+          <p>Neurobiologische Faktoren hinter ADHS.</p>
+        </div>
+        <div class="plus-button">
+          <i class="fas fa-plus"></i>
+        </div>
+      </div>
+    </a>
+  </main>
+
+  <footer class="info-box" id="about">
+    <div class="info-content">
+      <div class="info-toggle-wrapper">
+        <button class="info-toggle">Zusatzinformationen</button>
+        <div class="info-details">
+          <ul>
+            <li>Der Rechtmäßige Besitzer der Webseite Heißt Yannek Babista</li>
+            <li>Letztes Update 20.05.2025</li>
+            <li>Diese Seite habe ich für mein Naturwissenschaftsprojekt erstellt, danke für Ihren Besuch!</li>
+          </ul>
+        </div>
+      </div>
+      <div class="info-links">
+        <a href="https://www.flaticon.com/de/" class="flaticon-link">
+          <img src="flaticon-icon.png" alt="Flaticon Icon" class="github-icon" />
+          <span>Flaticon</span>
+        </a>
+        <a href="https://github.com/Yabaywa" class="github-link">
+          <img src="github-icon.png" alt="GitHub Icon" class="github-icon" />
+          <span>GitHub</span>
+        </a>
+        <a href="https://de.wikipedia.org/wiki/Kategorie:Neurobiologie" class="wikipedia-link">
+          <img src="wiki.png" alt="Wikipedia Icon" class="github-icon" />
+          <span>Wikipedia</span>
+        </a>
+        <a href="https://www.usz.ch/das-gehirn-waechst-an-seinen-aufgaben/" class="usz-link">
+          <img src="adh.png" alt="USZ Icon" class="github-icon" />
+          <span>USZ Gehirn</span>
+        </a>
+        <a href="https://gemeinsam-adhs-begegnen.de/was-ist-adhs/ursachen/" class="adhs-link">
+          <img src="Entwicklung.png" alt="ADHS Info Icon" class="github-icon" />
+          <span>ADHS Ursachen</span>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="NW-Logic.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const loginLogoutLink = document.getElementById('loginLogoutLink');
+      const forumLink = document.getElementById('forumLink');
+      const currentUser = localStorage.getItem('currentUser');
+      if (currentUser) {
+        const [, , role] = JSON.parse(currentUser);
+        loginLogoutLink.textContent = 'Logout';
+        loginLogoutLink.classList.add('logout-link');
+        loginLogoutLink.href = 'javascript:void(0)';
+        loginLogoutLink.onclick = () => {
+          localStorage.removeItem('currentUser');
+          window.location.reload();
+        };
+      } else {
+        forumLink.onclick = () => {
+          alert('Bitte melde dich zuerst an!');
+          return false;
+        };
+      }
+    });
+  </script>
+</body>
+</html>

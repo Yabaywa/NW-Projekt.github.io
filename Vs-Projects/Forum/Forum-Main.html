@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Forum</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <link rel="stylesheet" href="Forum-Farbe.css" />
+</head>
+<body class="forum-page">
+  <header class="forum-header">
+    <nav class="top-nav">
+      <div class="nav-links">
+        <a href="../index.html#topics" class="nav-link">Start-Menu</a>
+      </div>
+    </nav>
+    <h2 class="forum-title">Forum</h2>
+  </header>
+
+  <div class="forum-container">
+    <p>Angemeldet als: <span id="loggedInUser" class="user-name"></span> <button id="logoutButton" class="logout-button">Logout</button></p>
+    <textarea id="postInput" placeholder="Schreibe deinen Beitrag hier..." class="forum-input"></textarea>
+    <button id="postButton" class="forum-button">Beitrag hinzufügen</button>
+    <div id="posts" class="posts-container"></div>
+  </div>
+
+  <script src="Forum-Logic.js"></script>
+</body>
+</html>
